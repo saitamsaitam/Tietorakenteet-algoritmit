@@ -45,21 +45,21 @@ public class Stack {
 	}
 
 	// tulosta pinon sisältö muuttamatta pinoa
-//	public void printItems() {
-//		for (String s : list) {
-//			System.out.println(s);
-//		}
-//	}
-	
-	// tulostaa pinona
 	public void printItems() {
-		ListItem apu = mTop;
-		while(apu != null) {
-			System.out.println(apu.getData());
-			
-			apu = apu.getNext();
+		for (String s : list) {
+			System.out.println(s);
 		}
 	}
+	
+	// tulostaa pinona (kesken)
+//	public void printItems() {
+//		ListItem apu = mTop;
+//		while(apu != null) {
+//			System.out.println(apu.getData());
+//			
+//			apu = apu.getNext();
+//		}
+//	}
 
 	public int getSize() {
 		return mSize;
