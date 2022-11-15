@@ -20,12 +20,12 @@ public class StackIterator implements Iterator {
 
 	private String current;
 	private Stack container; // container on tietorakenne, jota iteroidaan
-	private int i;
+	public int i;
 
 	StackIterator(Stack c) { // konstruktori on "package visible"
 		container = c;
 		current = container.getCurrent(container.getSize() - 1);
-		i = container.getSize() - 1;
+		i = container.getSize();
 	}
 
 	// palautetaan tieto siitä, löytyyko rakenteesta seuraava alkio
@@ -38,23 +38,20 @@ public class StackIterator implements Iterator {
 			return true;
 	}
 
-	// palautetaan nykyinen (lista-alkio) ja siirretään nykypositiota pykälä
+	// palautetaan nykyinen (string) ja siirretään nykypositiota pykälä
 	// eteenpäin
 	public String next() {
-		String oldCurrent = current;
+		i--;
 
-//		System.out.println("current: " + current);
-//		System.out.println("i :" + i);
-		
 		if (i < 0) {
 			current = null;
-//			return current;
+			return current;
 		}
 
-//		System.out.println("getcurrent: " + container.getCurrent(0));
-		System.out.println("ennen get i: " +i);
-		current = container.getCurrent(i); // no work
-		i--;
+		current = container.getCurrent(i);
+
+		String oldCurrent = current;
+
 		return oldCurrent;
 	}
 
